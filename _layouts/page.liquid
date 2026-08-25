@@ -1,0 +1,47 @@
+---
+layout: default
+---
+{% if page._styles %}
+  <!-- Page/Post style -->
+  <style type="text/css">
+    {{ page._styles }}
+  </style>
+{% endif %}
+
+<div class="post">
+  <header class="post-header">
+    {%- comment -%}
+      `title_zh` / `description_zh` in a page's front matter make its heading
+      bilingual; without them the English text is shown in both languages.
+    {%- endcomment -%}
+    <h1 class="post-title">
+      {%- if page.title_zh -%}
+        <span class="i18n-en">{{ page.title }}</span><span class="i18n-zh">{{ page.title_zh }}</span>
+      {%- else -%}
+        {{ page.title }}
+      {%- endif -%}
+    </h1>
+    <p class="post-description">
+      {%- if page.description_zh -%}
+        <span class="i18n-en">{{ page.description }}</span><span class="i18n-zh">{{ page.description_zh }}</span>
+      {%- else -%}
+        {{ page.description }}
+      {%- endif -%}
+    </p>
+  </header>
+
+  <article>
+    {{ content }}
+  </article>
+
+  {% if page.related_publications %}
+    <h2>References</h2>
+    <div class="publications">
+      {% bibliography --cited_in_order %}
+    </div>
+  {% endif %}
+
+  {% if site.plugins contains 'al_comments' %}
+    {% include plugins/al_comments.liquid %}
+  {% endif %}
+</div>

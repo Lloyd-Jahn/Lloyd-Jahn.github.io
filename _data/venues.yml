@@ -1,0 +1,5 @@
+# Colours for the `abbr` badge shown next to each publication.
+
+"arXiv":
+  url: https://arxiv.org/
+  color: "#b31b1b"

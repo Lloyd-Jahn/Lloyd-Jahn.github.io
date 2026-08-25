@@ -1,0 +1,7 @@
+{%- comment -%}
+  Renders a navbar label in both languages. The EN/中文 toggle shows exactly one
+  of the two spans. Chinese strings live in _data/i18n.yml under `nav:`; a title
+  with no entry there falls back to English in both modes.
+{%- endcomment -%}
+{%- assign zh_label = site.data.i18n.nav[include.text] | default: include.text -%}
+<span class="i18n-en">{{ include.text }}</span><span class="i18n-zh">{{ zh_label }}</span>

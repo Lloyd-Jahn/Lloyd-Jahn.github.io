@@ -1,0 +1,17 @@
+# Chinese strings for the EN/中文 toggle.
+#
+# `nav` keys must match the `title:` of the corresponding page in _pages/.
+# `ui` keys are referenced from the layout overrides in _layouts/.
+# Anything without an entry here simply stays in English.
+
+nav:
+  About: 关于
+  Publications: 论文
+  CV: 简历
+
+ui:
+  news: 近期动态
+  selected_publications: 代表性工作
+  latest_posts: 最新文章
+  toggle_title: 切换到中文
+  toggle_title_zh: Switch to English

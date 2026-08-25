@@ -1,0 +1,9 @@
+# Social links shown under the about page and in the navbar.
+# Order here is the order they are displayed in.
+# See https://github.com/george-gca/jekyll-socials for every supported key.
+#
+# Note: `arxiv_id` expects an arXiv *author* identifier (arxiv.org/a/<id>), not
+# a paper id — leave it out until you have registered an author page.
+
+email: lloyd_jahn@sjtu.edu.cn
+github_username: Lloyd-Jahn

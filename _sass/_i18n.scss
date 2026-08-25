@@ -1,0 +1,104 @@
+/* -----------------------------------------------------------------------------
+ * EN / 中文 language toggle
+ *
+ * Both languages are present in the HTML; exactly one is displayed. The active
+ * language lives in `data-lang` on <html>, set by assets/js/lang-toggle.js
+ * before the body is parsed, so there is no flash of the wrong language.
+ *
+ * Only ever *hides* an element — never restores `display` — so a `.i18n-*`
+ * wrapper keeps whatever display type it would otherwise have (block for a
+ * <div>, inline for a <span>). With JavaScript off, English is shown.
+ * -------------------------------------------------------------------------- */
+
+html:not([data-lang="zh"]) .i18n-zh {
+  display: none;
+}
+
+html[data-lang="zh"] .i18n-en {
+  display: none;
+}
+
+/* Roboto has no CJK glyphs; name the system Chinese faces explicitly rather
+   than letting each platform pick its own generic fallback. */
+html[data-lang="zh"] body {
+  font-family:
+    Roboto,
+    "PingFang SC",
+    "Hiragino Sans GB",
+    "Microsoft YaHei",
+    "Noto Sans SC",
+    "Source Han Sans SC",
+    sans-serif;
+}
+
+/* Matches the look and footprint of the neighbouring theme toggle. */
+#lang-toggle {
+  padding: 0;
+  border: 0;
+  background-color: inherit;
+  color: var(--global-text-color);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  /* Fixed footprint so the navbar does not shift when the label changes */
+  width: 2.6rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    color: var(--global-hover-color);
+  }
+}
+
+@media (min-width: 576px) {
+  #lang-toggle {
+    transform: translateY(4px);
+  }
+}
+
+/* al-folio lays the profile's `more_info` lines out as inline-blocks and relies
+   on each being long enough to fill a row. Two short Chinese lines fit side by
+   side instead, so pin one line per row in both languages. */
+.profile .more-info p {
+  display: block;
+}
+
+/* Social icons sit under the profile photo (see _layouts/about.liquid), not in
+   the theme's default block at the foot of the about page. Sized, together with
+   the narrower photo below, so that photo + icons come out about as tall as the
+   English bio beside them. */
+.profile .profile-social {
+  margin-top: 0.6rem;
+  text-align: center;
+  font-size: 1.9rem;
+
+  a {
+    color: var(--global-text-color);
+    padding: 0 0.35rem;
+
+    &:hover {
+      color: var(--global-theme-color);
+    }
+  }
+}
+
+/* al-folio underlines your own name in an author list; bold reads better and
+   matches how the rest of the page marks emphasis. Same selector chain as
+   _publications.scss so this override wins on load order, not specificity. */
+.publications ol.bibliography li .author > em {
+  border-bottom: none;
+  font-style: normal;
+  font-weight: bold;
+}
+
+/* al-folio gives the profile column 30% of the content width, which makes the
+   photo taller than the bio next to it. 25% lines the two up. */
+@media (min-width: 576px) {
+  .profile {
+    width: 25%;
+  }
+}
