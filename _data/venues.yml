@@ -1,9 +1,8 @@
-# Colours for the `abbr` badge shown next to each publication.
+# Links for the `abbr` badge shown next to each publication. Badge colour is set
+# once for all venues in _sass/_i18n.scss, so no `color` here.
 
 "arXiv":
   url: https://arxiv.org/
-  color: "#b31b1b"
 
 "NeurIPS":
   url: https://neurips.cc/
-  color: "#00369f"

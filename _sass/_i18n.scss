@@ -102,3 +102,11 @@ html[data-lang="zh"] body {
     width: 25%;
   }
 }
+
+/* Every venue badge is arXiv red, so a new venue needs no colour in
+   _data/venues.yml. White text because the theme's default text colour is the
+   card background, which turns dark in dark mode. */
+.publications ol.bibliography li .abbr abbr {
+  background-color: #b31b1b;
+  color: white !important;
+}
