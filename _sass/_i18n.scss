@@ -110,19 +110,3 @@ html[data-lang="zh"] body {
   background-color: #b31b1b;
   color: white !important;
 }
-
-/* The award button (e.g. "Oral") uses the same red as the venue badges instead
-   of the theme colour. Same selector chain as _publications.scss. */
-.publications ol.bibliography li .links a.award.btn {
-  color: #b31b1b;
-  border-color: #b31b1b;
-
-  &:hover {
-    color: white;
-    background-color: #b31b1b;
-  }
-}
-
-.publications ol.bibliography li div.award.hidden.open {
-  border-color: #b31b1b;
-}
